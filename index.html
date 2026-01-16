@@ -632,22 +632,27 @@
 <body>
     <!-- Navigation -->
     <nav>
-        <div class="nav-container">
-            <img src="Wigo_logo.png" alt="Wigo Logo" class="logo">    <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home" onclick="closeMenu()">Home</a></li>
-                <li><a href="#quienes-somos" onclick="closeMenu()">¿Quiénes Somos?</a></li>
-                <li><a href="#nosotros" onclick="closeMenu()">Nosotros</a></li>
-                <li><a href="#historia" onclick="closeMenu()">Historia</a></li>
-                <li><a href="#ferias" onclick="closeMenu()">Ferias</a></li>
-                <li><a href="#descargas" onclick="closeMenu()">Descargas</a></li>
-                <li><a href="#contacto" onclick="closeMenu()">Contáctanos</a></li>
-            </ul>
+    <div class="nav-container">
+        <img src="Wigo_logo.png" alt="Wigo Logo" class="logo">
+        
+        <!-- Menú hamburguesa - solo para móvil -->
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-    </nav>
+        
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" onclick="closeMenu()">Home</a></li>
+            <li><a href="#quienes-somos" onclick="closeMenu()">¿Quiénes Somos?</a></li>
+            <li><a href="#nosotros" onclick="closeMenu()">Nosotros</a></li>
+            <li><a href="#historia" onclick="closeMenu()">Historia</a></li>
+            <li><a href="#ferias" onclick="closeMenu()">Ferias</a></li>
+            <li><a href="#descargas" onclick="closeMenu()">Descargas</a></li>
+            <li><a href="#contacto" onclick="closeMenu()">Contáctanos</a></li>
+        </ul>
+    </div>
+</nav>
 
     <!-- Home Section -->
     <section id="home">
