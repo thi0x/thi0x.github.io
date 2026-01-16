@@ -19,7 +19,7 @@
 
         /* Navbar */
         nav {
-            background: linear-gradient(135deg, #0066CC, #FF9933);
+            background: linear-gradient(135deg, #FF9933, #0066CC);
             padding: 1rem 2rem;
             position: fixed;
             width: 100%;
@@ -37,7 +37,8 @@
         }
 
         .logo {
-            height: 50px;
+            height: 55px;
+            filter: brightness(1.1) contrast(1.2) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
         }
 
         .nav-links {
@@ -209,6 +210,137 @@
         .team-info p {
             color: #666;
             line-height: 1.6;
+        }
+
+        /* Ferias Section */
+        #ferias {
+            background: linear-gradient(135deg, rgba(0,102,204,0.05), rgba(255,153,51,0.05));
+        }
+
+        .ferias-container {
+            display: grid;
+            grid-template-columns: 45% 55%;
+            gap: 3rem;
+            margin-top: 2rem;
+            align-items: start;
+        }
+
+        .peru-map {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            padding: 2rem;
+        }
+
+        .map-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .province {
+            fill: #0066CC;
+            stroke: #003d7a;
+            stroke-width: 1.5;
+            cursor: pointer;
+            transition: fill 0.3s, stroke 0.3s;
+            opacity: 0.7;
+        }
+
+        .province:hover {
+            opacity: 0.9;
+            fill: #FFB366;
+        }
+
+        .province.active {
+            fill: #FF9933;
+            stroke: #cc7a29;
+            stroke-width: 2;
+            opacity: 1;
+        }
+
+        .feria-carousel {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            min-height: 500px;
+        }
+
+        .feria-slide {
+            display: none;
+        }
+
+        .feria-slide.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .feria-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #0066CC, #FF9933);
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .feria-info h3 {
+            color: #0066CC;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feria-date {
+            color: #FF9933;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .feria-description {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .province-name {
+            text-align: center;
+            color: #0066CC;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 1.5rem;
+        }
+
+        .indicator-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #d4d4d4;
+            transition: background 0.3s;
+        }
+
+        .indicator-dot.active {
+            background: #FF9933;
         }
 
         /* Historia Section */
@@ -464,6 +596,14 @@
                 grid-template-columns: 1fr;
             }
 
+            .ferias-container {
+                grid-template-columns: 1fr;
+            }
+
+            .peru-map {
+                height: 400px;
+            }
+
             .timeline::before {
                 left: 30px;
             }
@@ -493,7 +633,7 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80'%3E%3Ctext x='10' y='50' font-family='Arial, sans-serif' font-size='40' font-weight='bold' fill='%230066CC'%3EWi%3C/text%3E%3Ccircle cx='80' cy='25' r='4' fill='%23FF9933'/%3E%3Ccircle cx='90' cy='25' r='4' fill='%23FF9933'/%3E%3Ctext x='100' y='50' font-family='Arial, sans-serif' font-size='40' font-weight='bold' fill='%23FF9933'%3Ego%3C/text%3E%3C/svg%3E" alt="Wigo Logo" class="logo">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 470 240'%3E%3Cg%3E%3C!-- W --%3E%3Cpath fill='%230d5ba6' d='M15,50 L35,50 L50,150 L70,50 L95,50 L115,150 L130,50 L150,50 L125,190 L95,190 L82.5,115 L70,190 L40,190 Z'/%3E%3C!-- i con puntos --%3E%3Ccircle fill='%230d5ba6' cx='175' cy='60' r='12'/%3E%3Ccircle fill='%230d5ba6' cx='205' cy='60' r='12'/%3E%3Crect fill='%230d5ba6' x='165' y='85' width='55' height='105' rx='5'/%3E%3C!-- o --%3E%3Cpath fill='%23f39c12' d='M260,50 C300,50 330,80 330,120 C330,160 300,190 260,190 C220,190 190,160 190,120 C190,80 220,50 260,50 Z M260,75 C235,75 215,95 215,120 C215,145 235,165 260,165 C285,165 305,145 305,120 C305,95 285,75 260,75 Z'/%3E%3C!-- o --%3E%3Cpath fill='%23f39c12' d='M375,50 C415,50 445,80 445,120 C445,160 415,190 375,190 C335,190 305,160 305,120 C305,80 335,50 375,50 Z M375,75 C350,75 330,95 330,120 C330,145 350,165 375,165 C400,165 420,145 420,120 C420,95 400,75 375,75 Z'/%3E%3C!-- sonrisa --%3E%3Cpath fill='none' stroke='%23f39c12' stroke-width='18' stroke-linecap='round' d='M280,200 Q315,230 350,200'/%3E%3C/g%3E%3C/svg%3E" alt="Wigo Logo" class="logo">
             <div class="menu-toggle" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
@@ -504,6 +644,7 @@
                 <li><a href="#quienes-somos" onclick="closeMenu()">¿Quiénes Somos?</a></li>
                 <li><a href="#nosotros" onclick="closeMenu()">Nosotros</a></li>
                 <li><a href="#historia" onclick="closeMenu()">Historia</a></li>
+                <li><a href="#ferias" onclick="closeMenu()">Ferias</a></li>
                 <li><a href="#descargas" onclick="closeMenu()">Descargas</a></li>
                 <li><a href="#contacto" onclick="closeMenu()">Contáctanos</a></li>
             </ul>
@@ -632,6 +773,109 @@
                     <div class="timeline-content">
                         <div class="timeline-year">2026</div>
                         <p>Lanzamiento de funciones avanzadas de IA y consolidación como líder del mercado con 200,000+ usuarios.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ferias Section -->
+    <section id="ferias">
+        <div class="container">
+            <h2>Ferias del Perú</h2>
+            <div class="ferias-container">
+                <div class="peru-map">
+                    <svg class="map-svg" viewBox="0 0 500 700" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Mapa detallado del Perú con formas realistas de provincias -->
+                        <g id="provinces">
+                            <!-- Tumbes -->
+                            <path class="province" data-province="tumbes" d="M80,20 L120,15 L130,30 L125,45 L105,50 L85,40 Z" />
+                            
+                            <!-- Piura -->
+                            <path class="province" data-province="piura" d="M85,50 L125,45 L145,60 L155,80 L150,100 L130,110 L110,105 L90,85 L80,65 Z" />
+                            
+                            <!-- Lambayeque -->
+                            <path class="province" data-province="lambayeque" d="M130,110 L150,100 L165,115 L170,135 L155,145 L135,140 Z" />
+                            
+                            <!-- Cajamarca -->
+                            <path class="province" data-province="cajamarca" d="M150,100 L180,90 L200,105 L210,130 L200,155 L170,160 L155,145 Z" />
+                            
+                            <!-- Amazonas -->
+                            <path class="province" data-province="amazonas" d="M210,80 L250,70 L270,90 L265,120 L240,130 L220,115 L210,95 Z" />
+                            
+                            <!-- Loreto -->
+                            <path class="province" data-province="loreto" d="M240,30 L320,25 L350,45 L360,80 L350,120 L320,135 L290,130 L270,100 L265,70 Z" />
+                            
+                            <!-- San Martín -->
+                            <path class="province" data-province="sanmartin" d="M265,120 L290,110 L310,125 L305,155 L285,165 L270,150 Z" />
+                            
+                            <!-- La Libertad -->
+                            <path class="province" data-province="lalibertad" d="M155,145 L185,135 L205,155 L210,180 L195,200 L170,195 L150,175 Z" />
+                            
+                            <!-- Ancash -->
+                            <path class="province" data-province="ancash" d="M150,175 L180,165 L200,185 L195,215 L170,230 L145,215 Z" />
+                            
+                            <!-- Huánuco -->
+                            <path class="province" data-province="huanuco" d="M200,185 L230,175 L250,195 L245,225 L220,235 L200,220 Z" />
+                            
+                            <!-- Ucayali -->
+                            <path class="province" data-province="ucayali" d="M280,165 L330,155 L355,180 L350,220 L320,240 L290,230 L270,210 L265,185 Z" />
+                            
+                            <!-- Pasco -->
+                            <path class="province" data-province="pasco" d="M200,220 L225,210 L240,230 L235,255 L210,260 Z" />
+                            
+                            <!-- Lima -->
+                            <path class="province" data-province="lima" d="M145,215 L175,205 L195,230 L190,270 L170,290 L145,285 L130,260 Z" />
+                            
+                            <!-- Junín -->
+                            <path class="province" data-province="junin" d="M195,230 L230,220 L255,245 L250,280 L225,295 L200,285 L190,260 Z" />
+                            
+                            <!-- Huancavelica -->
+                            <path class="province" data-province="huancavelica" d="M190,270 L215,265 L235,285 L230,315 L205,325 L185,310 Z" />
+                            
+                            <!-- Ica -->
+                            <path class="province" data-province="ica" d="M130,285 L165,280 L180,305 L175,340 L150,355 L125,340 Z" />
+                            
+                            <!-- Ayacucho -->
+                            <path class="province" data-province="ayacucho" d="M205,295 L245,285 L265,310 L260,350 L235,370 L210,360 L195,335 Z" />
+                            
+                            <!-- Cusco -->
+                            <path class="province" data-province="cusco" d="M235,340 L280,330 L305,355 L310,395 L285,425 L255,420 L235,395 L230,365 Z" />
+                            
+                            <!-- Apurímac -->
+                            <path class="province" data-province="apurimac" d="M210,335 L240,325 L255,350 L250,380 L225,390 L205,370 Z" />
+                            
+                            <!-- Arequipa -->
+                            <path class="province" data-province="arequipa" d="M150,360 L195,355 L220,380 L225,425 L205,460 L170,465 L145,445 L135,410 Z" />
+                            
+                            <!-- Puno -->
+                            <path class="province" data-province="puno" d="M255,395 L295,385 L325,410 L330,455 L315,490 L285,500 L260,485 L245,455 L240,420 Z" />
+                            
+                            <!-- Moquegua -->
+                            <path class="province" data-province="moquegua" d="M145,445 L175,440 L195,465 L190,495 L165,505 L140,490 Z" />
+                            
+                            <!-- Tacna -->
+                            <path class="province" data-province="tacna" d="M140,490 L170,485 L185,510 L180,535 L155,545 L130,530 Z" />
+                            
+                            <!-- Madre de Dios -->
+                            <path class="province" data-province="madrededios" d="M310,395 L355,385 L380,415 L375,460 L350,485 L320,475 Z" />
+                        </g>
+                        
+                        <!-- Etiquetas de provincias seleccionadas -->
+                        <text x="105" y="35" text-anchor="middle" font-size="10" fill="#fff" font-weight="bold">Piura</text>
+                        <text x="152" y="128" text-anchor="middle" font-size="10" fill="#fff" font-weight="bold">Lambayeque</text>
+                        <text x="163" y="235" text-anchor="middle" font-size="10" fill="#fff" font-weight="bold">Lima</text>
+                        <text x="267" y="365" text-anchor="middle" font-size="10" fill="#fff" font-weight="bold">Cusco</text>
+                        <text x="167" y="410" text-anchor="middle" font-size="10" fill="#fff" font-weight="bold">Arequipa</text>
+                    </svg>
+                </div>
+                <div class="feria-carousel">
+                    <div class="province-name" id="currentProvince">Lima</div>
+                    <div id="feriaSlides">
+                        <!-- Slides se cargarán dinámicamente -->
+                    </div>
+                    <div class="carousel-indicators" id="feriaIndicators">
+                        <!-- Indicadores se cargarán dinámicamente -->
                     </div>
                 </div>
             </div>
@@ -768,6 +1012,141 @@
             alert('¡Gracias por contactarnos! Te responderemos pronto.');
             e.target.reset();
         }
+
+        // Ferias data
+        const feriasData = {
+            lima: [
+                { name: 'Feria Gastronómica Mistura', date: '5-14 de Septiembre', description: 'La feria gastronómica más grande de América Latina. Celebra la diversidad culinaria peruana con los mejores chefs y productos del país.' },
+                { name: 'Feria del Señor de los Milagros', date: '18-28 de Octubre', description: 'Tradicional festividad religiosa que congrega a miles de devotos. Incluye procesiones, gastronomía y actividades culturales.' },
+                { name: 'Feria Internacional del Libro', date: '20-31 de Julio', description: 'Evento cultural que reúne a escritores, editoriales y amantes de la lectura de todo el mundo. Literatura, conferencias y talleres.' }
+            ],
+            cusco: [
+                { name: 'Inti Raymi', date: '24 de Junio', description: 'Fiesta del Sol, la celebración inca más importante. Ceremonia ancestral que rinde homenaje al dios Sol con danzas, música y representaciones.' },
+                { name: 'Feria de Santurantikuy', date: '24 de Diciembre', description: 'Tradicional mercado navideño cusqueño. Artesanías, retablos, figuras de nacimiento y arte popular en la Plaza de Armas.' },
+                { name: 'Corpus Christi', date: 'Mayo-Junio', description: 'Festividad religiosa con procesión de 15 santos. Gastronomía tradicional, danzas y música en las calles del centro histórico.' }
+            ],
+            arequipa: [
+                { name: 'Aniversario de Arequipa', date: '15 de Agosto', description: 'Celebración de la fundación española de la ciudad. Desfiles, fuegos artificiales, eventos culturales y tradicional corso de la amistad.' },
+                { name: 'Feria del Queso y Vino', date: '15-17 de Septiembre', description: 'Exhibición de los mejores quesos artesanales y vinos de la región. Degustaciones, concursos y gastronomía arequipeña.' },
+                { name: 'Festival del Rocoto Relleno', date: '10-12 de Noviembre', description: 'Homenaje al plato emblemático arequipeño. Concursos culinarios, degustaciones y actividades gastronómicas tradicionales.' }
+            ],
+            piura: [
+                { name: 'Feria de Reyes', date: '6 de Enero', description: 'Tradicional feria comercial y ganadera. Exposición de artesanías, gastronomía norteña y presentaciones folclóricas típicas de la región.' },
+                { name: 'Festival del Limón', date: '20-25 de Junio', description: 'Celebración del cítrico emblemático de Piura. Concursos gastronómicos, degustación de piscos y productos derivados del limón.' },
+                { name: 'Feria del Mango', date: '15-20 de Enero', description: 'Exhibición de las diversas variedades de mango piurano. Degustaciones, productos derivados y gastronomía regional.' }
+            ],
+            lambayeque: [
+                { name: 'Festival del King Kong', date: '18-20 de Julio', description: 'Homenaje al dulce tradicional lambayecano. Concursos de elaboración, degustaciones y exhibición de dulces típicos norteños.' },
+                { name: 'Feria del Caballo de Paso', date: '25-30 de Abril', description: 'Exhibición del caballo peruano de paso. Concursos ecuestres, shows de marinera norteña y actividades culturales.' },
+                { name: 'Semana Turística de Lambayeque', date: '5-12 de Marzo', description: 'Promoción del patrimonio arqueológico y cultural. Tours, danzas, gastronomía y visitas a museos y sitios históricos.' }
+            ]
+        };
+
+        let currentProvinceIndex = 0;
+        let currentSlideIndex = 0;
+        let provinceTimer;
+        let slideTimer;
+
+        const provinces = ['lima', 'cusco', 'arequipa', 'piura', 'lambayeque'];
+        const provinceNames = {
+            lima: 'Lima',
+            cusco: 'Cusco',
+            arequipa: 'Arequipa',
+            piura: 'Piura',
+            lambayeque: 'Lambayeque'
+        };
+
+        function loadFeriaSlides(province) {
+            const slides = feriasData[province];
+            const slidesContainer = document.getElementById('feriaSlides');
+            const indicatorsContainer = document.getElementById('feriaIndicators');
+            const provinceNameEl = document.getElementById('currentProvince');
+            
+            provinceNameEl.textContent = provinceNames[province];
+            slidesContainer.innerHTML = '';
+            indicatorsContainer.innerHTML = '';
+
+            slides.forEach((feria, index) => {
+                const slide = document.createElement('div');
+                slide.className = `feria-slide ${index === 0 ? 'active' : ''}`;
+                slide.innerHTML = `
+                    <div class="feria-image">${feria.name.substring(0, 1)}</div>
+                    <div class="feria-info">
+                        <h3>${feria.name}</h3>
+                        <div class="feria-date">${feria.date}</div>
+                        <p class="feria-description">${feria.description}</p>
+                    </div>
+                `;
+                slidesContainer.appendChild(slide);
+
+                const indicator = document.createElement('span');
+                indicator.className = `indicator-dot ${index === 0 ? 'active' : ''}`;
+                indicatorsContainer.appendChild(indicator);
+            });
+
+            currentSlideIndex = 0;
+        }
+
+        function changeSlide() {
+            const slides = document.querySelectorAll('.feria-slide');
+            const indicators = document.querySelectorAll('.indicator-dot');
+            
+            slides[currentSlideIndex].classList.remove('active');
+            indicators[currentSlideIndex].classList.remove('active');
+            
+            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+            
+            slides[currentSlideIndex].classList.add('active');
+            indicators[currentSlideIndex].classList.add('active');
+        }
+
+        function changeProvince(index) {
+            const allProvinces = document.querySelectorAll('.province');
+            allProvinces.forEach(p => p.classList.remove('active'));
+            
+            const province = provinces[index];
+            const provinceEl = document.querySelector(`[data-province="${province}"]`);
+            if (provinceEl) {
+                provinceEl.classList.add('active');
+            }
+            
+            loadFeriaSlides(province);
+            
+            clearInterval(slideTimer);
+            slideTimer = setInterval(changeSlide, 5000);
+        }
+
+        function nextProvince() {
+            currentProvinceIndex = (currentProvinceIndex + 1) % provinces.length;
+            changeProvince(currentProvinceIndex);
+        }
+
+        // Event listeners para provincias
+        document.addEventListener('DOMContentLoaded', () => {
+            const provinceElements = document.querySelectorAll('.province');
+            
+            if (provinceElements && provinceElements.length > 0) {
+                provinceElements.forEach((element) => {
+                    element.addEventListener('click', () => {
+                        const provinceName = element.getAttribute('data-province');
+                        const provinceIndex = provinces.indexOf(provinceName);
+                        
+                        if (provinceIndex !== -1) {
+                            clearInterval(provinceTimer);
+                            clearInterval(slideTimer);
+                            currentProvinceIndex = provinceIndex;
+                            changeProvince(provinceIndex);
+                            provinceTimer = setInterval(nextProvince, 15000);
+                        }
+                    });
+                });
+
+                // Iniciar con Lima
+                changeProvince(0);
+                slideTimer = setInterval(changeSlide, 5000);
+                provinceTimer = setInterval(nextProvince, 15000);
+            }
+        });
     </script>
 </body>
 </html>
